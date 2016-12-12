@@ -134,6 +134,9 @@ ifeq (,$(filter-out WINNT WIN95,$(OS_TARGET)))
 ifndef USE_64
 # 32-bit Windows
 ifdef NS_USE_GCC
+ifdef BUILD_OPT
+	OPTIMIZER += -Os
+	endif
 # Ideally, we want to use assembler
 #     ASFILES  = mpi_x86.s
 #     DEFINES += -DMP_ASSEMBLY_MULTIPLY -DMP_ASSEMBLY_SQUARE \
@@ -141,7 +144,8 @@ ifdef NS_USE_GCC
 # but we haven't figured out how to make it work, so we are not
 # using assembler right now.
     ASFILES  =
-    DEFINES += -DMP_NO_MP_WORD -DMP_USE_UINT_DIGIT
+    DEFINES += -DMPI_AMD64 -DMP_USE_UINT_DIGIT
+	DEFINES += -DMP_CHAR_STORE_SLOW -DMP_IS_LITTLE_ENDIAN
 else
 # MSVC
     MPI_SRCS += mpi_x86_asm.c

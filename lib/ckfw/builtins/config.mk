@@ -15,7 +15,7 @@ PROGRAM        =
 
 ifeq (,$(filter-out WIN%,$(OS_TARGET)))
     SHARED_LIBRARY = $(OBJDIR)/$(DLL_PREFIX)$(LIBRARY_NAME)$(LIBRARY_VERSION).$(DLL_SUFFIX)
-    RES = $(OBJDIR)/$(LIBRARY_NAME).res
+    RES = $(OBJDIR)/$(LIBRARY_NAME).res.o
     RESNAME = $(LIBRARY_NAME).rc
 endif
 

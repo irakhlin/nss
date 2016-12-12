@@ -374,7 +374,7 @@ else
 PWD := $(shell pwd)
 ifeq (,$(findstring ;,$(PATH)))
 ifndef USE_MSYS
-PWD := $(subst \,/,$(shell cygpath -w $(PWD)))
+#PWD := $(subst \,/,$(shell cygpath -w $(PWD)))
 endif
 endif
 endif

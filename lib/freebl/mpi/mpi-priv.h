@@ -179,7 +179,7 @@ void s_mp_sqr_comba_32(const mp_int *A, mp_int *B);
 #define MPI_ASM_DECL
 #endif
 
-#ifdef MPI_AMD64
+#if defined(MPI_AMD64) && defined(MP_ASSEMBLY_MULTIPLY)
 
 mp_digit MPI_ASM_DECL s_mpv_mul_set_vec64(mp_digit *, mp_digit *, mp_size, mp_digit);
 mp_digit MPI_ASM_DECL s_mpv_mul_add_vec64(mp_digit *, const mp_digit *, mp_size, mp_digit);

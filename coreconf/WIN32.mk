@@ -97,14 +97,14 @@ MAKE_OBJDIR += $(OBJDIR)
 GARBAGE     += $(OBJDIR)/vc20.pdb $(OBJDIR)/vc40.pdb
 XP_DEFINE   += -DXP_PC
 ifdef NS_USE_GCC
-LIB_SUFFIX   = a
+LIB_SUFFIX   = dll.a
 else
 LIB_SUFFIX   = lib
 endif
 DLL_SUFFIX   = dll
 
 ifdef NS_USE_GCC
-    OS_CFLAGS += -mwindows -mms-bitfields
+    OS_CFLAGS += -mwindows -mms-bitfields -mnop-fun-dllimport -D_WIN32_IE=0x0501 -U__MMX__ -U__SSE__ -U__SSE2__
     _GEN_IMPORT_LIB=-Wl,--out-implib,$(IMPORT_LIBRARY)
     DLLFLAGS  += -mwindows -o $@ -shared -Wl,--export-all-symbols $(if $(IMPORT_LIBRARY),$(_GEN_IMPORT_LIB))
     ifdef BUILD_OPT

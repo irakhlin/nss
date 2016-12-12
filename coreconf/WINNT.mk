@@ -14,7 +14,7 @@ DEFINES += -DWINNT
 #
 # Win NT needs -GT so that fibers can work
 #
-OS_CFLAGS += -GT
+#OS_CFLAGS += -GT
 
 # WINNT uses the lib prefix, Win95 doesn't
 NSPR31_LIB_PREFIX = lib

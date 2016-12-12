@@ -58,7 +58,7 @@ include $(CORE_DEPTH)/coreconf/rules.mk
 LDDIST = $(DIST)/lib
 
 ifeq (,$(filter-out WIN%,$(OS_TARGET)))
-EXTRA_LIBS += $(LDDIST)/sectool.lib
+#EXTRA_LIBS += $(LDDIST)/sectool.lib
 endif
 
 include ../platrules.mk
